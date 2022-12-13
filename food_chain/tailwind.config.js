@@ -4,10 +4,10 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      "poppins" : ['Poppins', 'Tahoma']
-    },
-    fontFamily: {
-      "raleway" : ['Raleway', 'Tahoma']
+      "poppins" : ['Poppins', 'Tahoma'],
+      "raleway" : ['Raleway', 'Tahoma'],
+      "playfair" : ['Playfair Display', 'Tahoma']
+
     },
   },
   plugins: [],
