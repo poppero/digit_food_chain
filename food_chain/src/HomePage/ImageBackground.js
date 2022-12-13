@@ -14,7 +14,7 @@ const ImageBackground = () => {
         menu : <Menu />
     }
   return (
-    <div className="h-screen bg-cover overflow-hidden opacity-80   bg-[url('http://localhost:3001/background.jpg')] ">
+    <div className="h-screen bg-cover overflow-hidden opacity-80   bg-[url('http://localhost:3000/background.jpg')] ">
      <Navigation selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
       <div className='h-screen z-10 backdrop-blur-lg flex flex-col justify-center items-center overflow-x-hidden'>
         {components[selectedPage]}

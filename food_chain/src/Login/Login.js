@@ -28,7 +28,7 @@ const Login = () => {
     console.log(login.email)
   return (
     <form onSubmit={handleLogin} onChange={handleChange} className="w-[80vh] h-[60vh] mb-[5rem] bg-white bg-opacity-10 backdrop-blur-lg rounded drop-shadow-lg flex flex-col justify-between items-center">
-     <img className='w-[30rem]' src='http://localhost:3001/logo-transparent.png'/>
+     <img className='w-[30rem]' src='http://localhost:3000/logo-transparent.png'/>
       <div className='flex flex-col gap-4 w-full justify-center items-center'>
         <input value={login.email} name='email' type="text" className='border-b-[0.1rem] border-white bg-transparent text-white font-raleway placeholder:text-white placeholder:font-semibold p-4 outline-none w-2/3' placeholder="email" />
         <input value={login.password} name='password' type="password" className='border-b-[0.1rem] border-white bg-transparent text-white font-raleway placeholder:text-white placeholder:font-semibold p-4 outline-none w-2/3' placeholder="password" />

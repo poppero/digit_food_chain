@@ -9,7 +9,7 @@ const Navigation = (props) => {
     <div className='backdrop-blur-lg flex flex-row justify-between p-2 w-screen items-center'>
         
         <div className='w-1/3'>
-        <img className='w-[20rem]' src='http://localhost:3001/logo-transparent.png'/>
+        <img className='w-[20rem]' src='http://localhost:3000/logo-transparent.png'/>
         </div>
         <NavBar selectedPage={props.selectedPage} setSelectedPage={props.setSelectedPage} />
         <SearchBar />
