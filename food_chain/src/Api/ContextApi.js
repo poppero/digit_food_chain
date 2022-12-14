@@ -3,6 +3,8 @@ import react from "react";
 
 export const UserContext = createContext();
 export const CurrentUserContext = createContext();
+export const AssistantModalContext = createContext();
+export const VoiceControlContext = createContext();
 
 
 export const UserProvider = props => {
@@ -36,12 +38,18 @@ export const UserProvider = props => {
         email: "petar@gmail.com",
         password: "12345"
     })
+    const redirect = ""
+    const [assistant, setAssistant] = useState(false)
     return (
 
         <UserContext.Provider value={[users, setUsers]}>
-            <CurrentUserContext.Provider value={[currentUser, setCurrentUser]}>
-                {props.children}
-            </CurrentUserContext.Provider>
+            <VoiceControlContext.Provider value={redirect}>
+                <CurrentUserContext.Provider value={[currentUser, setCurrentUser]}>
+                    <AssistantModalContext.Provider value={[assistant, setAssistant]}>
+                        {props.children}
+                    </AssistantModalContext.Provider>
+                </CurrentUserContext.Provider>
+            </VoiceControlContext.Provider>
         </UserContext.Provider>
 
 

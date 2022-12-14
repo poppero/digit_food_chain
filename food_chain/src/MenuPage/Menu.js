@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import { CategoriesContext, ProductContext } from '../Api/ProductsApi'
 
 const Menu = () => {
@@ -14,7 +15,8 @@ const Menu = () => {
       </div>
       <div className='grid grid-cols-4 gap-2 p-8'>
         {products.filter(p => p.category_id === 1).map(pro =>
-          <div class="w-[45vh] h-[60vh]  bg-white bg-opacity-30 backdrop-blur-lg rounded drop-shadow-lg flex flex-col justify-around items-center hover:opacity-80 p-4">
+          <Link to={`/product/${pro.name}`} >
+            <div class="w-[45vh] h-[60vh]  bg-white bg-opacity-30 backdrop-blur-lg rounded drop-shadow-lg flex flex-col justify-around items-center hover:opacity-80 p-4">
             <img className="w-2/3" src={pro.image_path} />
             <div className='flex flex-col justify-center items-center '>
               <h1 className='font-raleway text-white text-3xl font-semibold'>{pro.name}</h1>
@@ -22,6 +24,7 @@ const Menu = () => {
               <h1 className='font-raleway font-semibold text-white p-4 text-center'>{pro.description}</h1>
             </div>
           </div>
+          </Link>
         )}
 
       </div>

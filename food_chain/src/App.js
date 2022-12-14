@@ -1,30 +1,36 @@
 import './App.css';
 import ImageBackground from './HomePage/ImageBackground';
-import { BrowserRouter as Router , Routes , Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { redirect } from 'react-router-dom';
 import LoginPage from './Login/LoginPage';
-import {UserProvider} from './Api/ContextApi';
+import { UserProvider, VoiceControlContext } from './Api/ContextApi';
 import { ProductProvider } from './Api/ProductsApi';
+import ProductDetails from './ProductPage/ProductDetails';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import { useContext, useState } from 'react';
 
 function App() {
+  const redirect = useContext(VoiceControlContext)
   return (
     <div className="App bg-black overflow-x-hidden">
-   
-    <Router>
-    <UserProvider>
-      <ProductProvider>
-      <Routes>
-        <Route path="/" element={<ImageBackground />} />
-        
-         <Route path="/login" element={<LoginPage />} />
-    
-      </Routes>
-      </ProductProvider>
-      </UserProvider>
-    </Router>
-    
+
+      <Router>
+        <UserProvider>
+          <ProductProvider>
+            <Routes>
+              <Route path="/" element={<ImageBackground />} />
+              <Route path="/product/:name" element={<ProductDetails />} />
+              <Route path="/login" element={<LoginPage />} />
+              {console.log(redirect)}
+            </Routes>
+          </ProductProvider>
+        </UserProvider>
+      </Router>
+
 
     </div>
   );
 }
 
 export default App;
+
