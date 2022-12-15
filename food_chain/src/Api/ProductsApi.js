@@ -4,6 +4,7 @@ import react, { createContext, useState } from "react"
 export const ProductContext = createContext()
 export const CategoriesContext = createContext()
 export const IngredientsContext = createContext()
+export const CartContext = createContext()
 
 
 
@@ -165,11 +166,35 @@ export const ProductProvider = props => {
             ingredient: "Oregano"
         },
     ])
+    const [cart, setCart] = useState([
+        {
+            id: 1,
+            product_id: 1,
+            quantity: 2
+        },
+        {
+            id: 2,
+            product_id: 2,
+            quantity: 1
+        },
+        {
+            id: 3,
+            product_id: 9,
+            quantity: 1
+        },
+        {
+            id: 4,
+            product_id: 4,
+            quantity: 1
+        },
+    ])
     return (
         <ProductContext.Provider value={[products, setProducts]} >
             <CategoriesContext.Provider value={[categories, setCategories]} >
                 <IngredientsContext.Provider value={[ingredients, setIngredients]}>
-                    {props.children}
+                    <CartContext.Provider value={[cart, setCart]}>
+                        {props.children}
+                    </CartContext.Provider>
                 </IngredientsContext.Provider>
             </CategoriesContext.Provider>
         </ProductContext.Provider>

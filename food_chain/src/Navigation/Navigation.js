@@ -1,5 +1,6 @@
 import { setSelectionRange } from '@testing-library/user-event/dist/utils'
 import React, { useContext, useState } from 'react'
+import { BsCart } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import { AssistantModalContext, ChangingComponentsContext } from '../Api/ContextApi.js'
 import AssistantModal from '../Assistant/AssistantModal.js'
@@ -18,6 +19,7 @@ const Navigation = (props) => {
         </div>
         <NavBar selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
         <SearchBar />
+        <Link to="/cart" ><BsCart className='text-white text-2xl m-1 cursor-pointer'/></Link>
         
       
         

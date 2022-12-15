@@ -10,7 +10,9 @@ const AssistantModal = () => {
   const { transcript } = useSpeechRecognition()
   const str = transcript
   const split = str.split(' ')
+  console.log(split)
   const lastWord = split[split.length - 1]
+  console.log(lastWord)
   return (
     <div className=' w-[100vh] h-[60vh] bg-white bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg flex flex-col justify-around '  >
 
@@ -22,7 +24,7 @@ const AssistantModal = () => {
         <p className='font-raleway text-center text-slate-300 text-lg '>Say ('Show the menu')</p>
         <p className='text-white font-raleway'>You: {transcript}</p>
         {lastWord === "login" ? <Navigate to="/login" /> : null}
-        {lastWord === "menu" ? <Navigate to="/" /> && setSelectedPage("menu") : null}
+        {lastWord === "menu" || lastWord === "about" || lastWord == "contact" || lastWord === "home" ? <Navigate to="/" /> && setSelectedPage(lastWord) : null}
         <BsMic size={40} onClick={SpeechRecognition.startListening} className='text-white hover:bg-slate-400 cursor-pointer  mt-4 border-[0.1rem] border-white rounded-full p-1' />
       </div>
 
