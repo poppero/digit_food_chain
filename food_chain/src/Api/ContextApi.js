@@ -5,6 +5,8 @@ export const UserContext = createContext();
 export const CurrentUserContext = createContext();
 export const AssistantModalContext = createContext();
 export const VoiceControlContext = createContext();
+export const ChangingComponentsContext = createContext();
+export const LoginContext = createContext();
 
 
 export const UserProvider = props => {
@@ -40,15 +42,21 @@ export const UserProvider = props => {
     })
     const redirect = ""
     const [assistant, setAssistant] = useState(false)
+    const [selectedPage, setSelectedPage] = useState("home")
+    const [status, setStatus] = useState("")
     return (
 
         <UserContext.Provider value={[users, setUsers]}>
             <VoiceControlContext.Provider value={redirect}>
-                <CurrentUserContext.Provider value={[currentUser, setCurrentUser]}>
-                    <AssistantModalContext.Provider value={[assistant, setAssistant]}>
-                        {props.children}
-                    </AssistantModalContext.Provider>
-                </CurrentUserContext.Provider>
+                <LoginContext.Provider value={[status, setStatus]}>
+                    <CurrentUserContext.Provider value={[currentUser, setCurrentUser]}>
+                        <AssistantModalContext.Provider value={[assistant, setAssistant]}>
+                            <ChangingComponentsContext.Provider value={[selectedPage, setSelectedPage]} >
+                                {props.children}
+                            </ChangingComponentsContext.Provider>
+                        </AssistantModalContext.Provider>
+                    </CurrentUserContext.Provider>
+                </LoginContext.Provider>
             </VoiceControlContext.Provider>
         </UserContext.Provider>
 

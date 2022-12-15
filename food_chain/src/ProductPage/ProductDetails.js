@@ -1,5 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
+import Footer from '../HomePage/Footer'
 import Navigation from '../Navigation/Navigation'
 import OneProduct from './OneProduct'
 
@@ -12,6 +13,7 @@ const ProductDetails = () => {
         <OneProduct  name={name}/>
        
      </div>
+     <Footer />
    </div>
   )
 }

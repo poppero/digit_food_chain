@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
-import { CurrentUserContext, UserContext } from '../Api/ContextApi'
+import { CurrentUserContext, LoginContext, UserContext } from '../Api/ContextApi'
 
 const Login = () => {
     const [users , setUsers] = useContext(UserContext)
-    const [status , setStatus] = useState("")
+    const [status , setStatus] = useContext(LoginContext)
     const [currentUser , setCurrentUser] = useContext(CurrentUserContext)
     const [login , setLogin] = useState({
         email : "",
@@ -27,7 +27,7 @@ const Login = () => {
    }
     console.log(login.email)
   return (
-    <form onSubmit={handleLogin} onChange={handleChange} className="w-[80vh] h-[60vh] mb-[5rem] bg-white bg-opacity-10 backdrop-blur-lg rounded drop-shadow-lg flex flex-col justify-between items-center">
+    <form onSubmit={handleLogin} onChange={handleChange} className="w-[80vh] h-[60vh] mb-[5rem] bg-white bg-opacity-10 backdrop-blur-lg rounded drop-shadow-lg flex flex-col justify-around items-center">
      <img className='w-[30rem]' src='http://localhost:3000/logo-transparent.png'/>
       <div className='flex flex-col gap-4 w-full justify-center items-center'>
         <input value={login.email} name='email' type="text" className='border-b-[0.1rem] border-white bg-transparent text-white font-raleway placeholder:text-white placeholder:font-semibold p-4 outline-none w-2/3' placeholder="email" />
@@ -36,7 +36,7 @@ const Login = () => {
         <button className='text-white font-poppins border-[0.1rem] p-3 mt-6 lg:transition lg:ease-in-out lg:delay-100  lg:hover:-translate-y-1 lg:hover:scale-110 hover:bg-white hover:text-black font-semibold w-1/4'>LOGIN</button>
       </div>
       {status === "Login success." ? <Navigate to="/" /> : null}
-      <h1 className='font-raleway text-white text-center p-2'>since 2022 &copy; DIGIT STEAK HOUSE</h1>
+
     </form>
   )
 }

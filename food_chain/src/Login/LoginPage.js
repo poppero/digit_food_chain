@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../HomePage/Footer'
 import Login from './Login'
 
 const LoginPage = () => {
@@ -7,7 +8,7 @@ const LoginPage = () => {
     <div className='backdrop-blur-lg w-screen h-screen flex justify-center items-center'>
     <Login />
     </div>
-     
+     <Footer />
     </div>
   )
 }
