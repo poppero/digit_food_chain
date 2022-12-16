@@ -3,11 +3,10 @@ import { useSpeechSynthesis } from 'react-speech-kit'
 import { IngredientsContext, ProductContext } from '../Api/ProductsApi'
 
 const OneProduct = props => {
-  const {speak} = useSpeechSynthesis()
   const [products, setProducts] = useContext(ProductContext)
   const [ingredients, setIngredients] = useContext(IngredientsContext)
   const product_info = products.find(p => p.name === props.name)
-  const text = "Your order has 1" + props.name + ". Total price " + product_info.price + "dollars"
+
   console.log(ingredients)
   return (
     <div class="w-2/3 h-[70vh] bg-white bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg flex flex-row items-center p-10">
@@ -28,7 +27,6 @@ const OneProduct = props => {
           </div>)}
       </div>
       <div className='flex flex-col w-1/3 h-full justify-start '>
-        <button onClick={() => speak({text : text})}>Speak</button>
 
 <h1 className='font-raleway text-white text-3xl p-2'>Description </h1>
 <p className='font-raleway text-white text-center w-full'>hwdddddd dddddddddd dddddd dduwhdu hq uwd hqw idhqwi uhdiuhq iud hqu ih iu hiu wqh duiw hiu whq iu hwiu hiu qh iuqh i hiuq</p>

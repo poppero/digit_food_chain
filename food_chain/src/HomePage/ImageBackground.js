@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import About from '../AboutPage/About'
 import { AssistantModalContext, ChangingComponentsContext } from '../Api/ContextApi'
 import AssistantModal from '../Assistant/AssistantModal'
+import CartPage from '../Cart/CartPage'
 import Contact from '../ContactPage/Contact'
 import Menu from '../MenuPage/Menu'
 import Navigation from '../Navigation/Navigation'
@@ -16,7 +17,8 @@ const ImageBackground = () => {
         about : <About />,
         contact : <Contact />,
         menu : <Menu />,
-        assistant : <AssistantModal />
+        assistant : <AssistantModal />,
+        cart : <CartPage />
     }
   return (
     <div className="h-screen bg-cover overflow-hidden opacity-80   bg-[url('http://localhost:3000/background.jpg')] ">

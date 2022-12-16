@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+import { BsCart, BsCartFill } from 'react-icons/bs'
 import { Link, Navigate, useLocation } from 'react-router-dom'
 import { AssistantModalContext, ChangingComponentsContext } from '../Api/ContextApi'
 
@@ -37,6 +38,7 @@ const NavBar = (props) => {
     :
     <h1 onClick={e => setSelectedPage("contact")} className={selectedPage == "contact" ? selected_class : reg_class}>CONTACT</h1>
     }
+   
       
       
         
